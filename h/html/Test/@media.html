@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <style>
+        .man
+        {
+            width: 400px;
+            height: 200px;
+            background: #c12c26;
+        }
+        .man1
+        {
+          display: none;
+            width: 500px;
+            height:500px;
+        }
+        @media screen and (max-width: 1024px){
+            .man{
+                display: none;
+            }
+        }
+        @media screen and (min-width:960px) and (max-width:1024px){
+            .man1{
+                display:block;
+                background: #f94a94
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="man">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</div>
+<div class="man1">fffffffffffffffffffffffffffffffffff</div>
+</body>
+</html>

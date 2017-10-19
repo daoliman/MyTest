@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+    $(document).ready(function ()
+    {
+        $("button").click(function(){
+        var txt="<p>text</p>";
+        var txt1=$("<p></p>").text("text");
+        var txt2=document.createElement("p");
+        txt2.innerHTML="text";
+        $("body").append(txt,txt1,txt2);
+    });
+    });
+
+
+    </script>
+</head>
+<body>
+<button >please click me</button>
+</body>
+</html>

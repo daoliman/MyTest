@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var div=$(".div")
+                div.animate({left:'100px'},"slow");
+                div.animate({fontSize:'3em'},"slow");
+            });
+        });
+    </script>
+    <style>
+        .div
+        {
+            width: 100px;
+            height: 100px;
+            background: #FF6537;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<button>click me!</button>
+<div class="div">Good morning!</div>
+</body>
+</html>

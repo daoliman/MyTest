@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script>
+        var obj={a:0,b:0,c:0,d:0,e:0};
+        var str="";
+        function cc() {
+            for(var i in obj){
+                obj[i]=1;
+                str+=obj[i];
+            }
+            document.write(str);
+        }
+    </script>
+</head>
+<body>
+
+<button onclick="cc()">点击这里</button>
+</body>
+</html>

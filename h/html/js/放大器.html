@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+
+        .small-box {
+            width:300px;
+            height:300px;
+
+            border:1px #ccc solid;
+            cursor:move;
+            float:left;
+            position:relative;
+        }
+        .small-box img {
+            width:300px;
+            height:300px;
+        }
+        .tool {
+            width:150px;
+            height:150px;
+            background-color:gold;
+            opacity:0.6;
+            position:absolute;
+            left:0px;
+            top:0px;
+            display:none;
+        }
+        .tool.active {
+            display:block;
+        }
+        .big-box {
+            width:300px;
+            height:300px;
+            border:1px #ccc solid;
+            overflow:hidden;
+            float:left;
+            position:relative;
+            display:none;
+        }
+        .big-box.active {
+            display:block;
+        }
+        .big-box img {
+            width:600px;
+            height:600px;
+            position:absolute;
+        }
+    </style>
+
+</head>
+<body>
+<div class="small-box" id="smallBox">
+    <img src="../img/2.jpg"/>
+    <div class="tool" id="tool"></div>
+</div>
+<div class="big-box" id="bigBox">
+    <img src="../img/2.jpg" id="bigImg" />
+</div>
+<script>
+
+    var smallBox = document.getElementById("smallBox");
+    var tool = document.getElementById("tool");
+    var bigBox = document.getElementById("bigBox");
+    var bigImg = document.getElementById("bigImg");
+    //鼠标进入小盒子区域内
+    smallBox.onmouseover = function(){
+        tool.style.display = "block";
+        bigBox.style.display = "block";
+    }
+    //鼠标离开小盒子区域
+    smallBox.onmouseout = function(){
+        tool.style.display = "none";
+        bigBox.style.display = "none";
+    }
+    //鼠标在小盒子内移动
+    smallBox.onmousemove = function(e){
+        var _e = window.event||e;
+        var x = _e.clientX-this.offsetLeft-tool.offsetWidth/2;
+        var y = _e.clientY-this.offsetTop-tool.offsetHeight/2;
+        if(x<0){
+            x = 0;
+        }
+        if(y<0){
+            y = 0;
+        }
+        if(x>this.offsetWidth-tool.offsetWidth){
+            x = this.offsetWidth-tool.offsetWidth;
+        }
+        if(y>this.offsetHeight-tool.offsetHeight){
+            y = this.offsetHeight-tool.offsetHeight;
+        }
+        tool.style.left = x + "px";
+        tool.style.top = y + "px";
+        bigImg.style.left = -x*2 + "px";
+        bigImg.style.top = -y*2 + "px";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#p").css("color","red").slideUp(2000).slideDown(2000);
+            })
+        })
+    </script>
+</head>
+<body>
+<p id="p">这是第一个chaining实例</p>
+<button> click me!</button>
+</body>
+</html>

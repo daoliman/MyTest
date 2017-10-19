@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .box{
+            width: 1200px;
+            margin: 0 auto;
+
+        }
+        .div{
+            float:left;
+            margin: 5px 5px 5px 5px;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.js"></script>
+    <script>
+
+        $(window).ready(function(){
+            var arr=30;
+            for(var i=0;i<=30;i++){
+                $("#div0"+minDiv()).append(createImgDiv(i));
+
+            }
+            function minDiv(){
+                var min=$("#div01").outerHeight();
+                var minNum=1;
+                for(var i=1;i<6;i++){
+                    console.log("#div0"+i+" "+$("#div0"+i).outerHeight());
+                    if($("#div0"+i).outerHeight()<min){
+                        min=$("#div0"+i).outerHeight();
+                        minNum=i;
+                        console.log(min+"  "+i);
+                    }
+                }
+                return minNum;
+            }
+            function createImgDiv(n){
+                var divapp="<div style='border: 1px solid gainsboro;width: 200px;padding:5px 5px 0 5px;margin-top:5px;;border-radius: 8px'> <img src='"+n+".jpg' style='width: 200px' alt='2.jpg'></div>";
+                return divapp;
+            }
+            window.onscroll=function(){
+
+                var scrollTop=document.body.scrollTop;
+                var clientHeight=document.documentElement.clientHeight||document.body.clientHeight||window.innerHeight;
+                if(document.documentElement.offsetHeight-clientHeight<=scrollTop){
+
+                    for(var i=0;i<5;i++){
+                        arr+=i;
+                        $("#div0"+minDiv()).append(createImgDiv(arr));
+                    }
+                }
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="div" id="div01">
+        </div >
+        <div class="div" id="div02">
+        </div>
+        <div class="div" id="div03">
+        </div>
+        <div class="div" id="div04">
+        </div>
+        <div class="div" id="div05">
+        </div>
+    </div>
+</body>
+</html>
